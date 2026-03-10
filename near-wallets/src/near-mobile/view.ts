@@ -32,7 +32,7 @@ export const nearMobileFrame = `
                 <div class="near-mobile-links">
                     <a onclick="window.selector.open('https://apps.apple.com/app/near-mobile/id6443501225')">
                         <div class="near-mobile-link">
-                            <img src="https://near-mobile-signer-backend_production.peersyst.tech/assets/ios.svg" />
+                            <img src="https://near-mobile-signer-backend_production.peersyst.tech/assets/ios.svg" style="margin-top: -4px;" />
                             <p>App Store</p>
                         </div>
                     </a>
@@ -126,20 +126,15 @@ export const nearMobileFrameHead = `
         visibility: visible;
         transition: visibility linear, opacity 0.25s;
         justify-content: center;
-        align-items: center;
         font-family: Manrope, sans-serif;
         z-index: 10000;
         display: flex;
         min-height: 100%;
         min-width: 100%;
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
     }
 
     .near-mobile-overlay {
+        display: none;
         position: absolute;
         background: rgba(38, 38, 38, 0.6);
         height: 100%;
@@ -182,11 +177,9 @@ export const nearMobileFrameHead = `
         display: flex;
         flex-direction: column;
         box-sizing: border-box;
-        position: absolute;
         align-items: center;
         justify-content: center;
         overflow: hidden;
-        height: 100%;
         width: 100%;
         background: linear-gradient(90deg, #5f8afa 0%, #6b6ef9 100%);
         font-size: 1rem;
@@ -244,6 +237,8 @@ export const nearMobileFrameHead = `
 
     .near-mobile-footer p {
         text-align: center;
+        text-box-edge: cap alphabetic;
+        text-box-trim: trim-both;
     }
 
     .near-mobile-close-button {
@@ -291,7 +286,8 @@ export const nearMobileFrameHead = `
         gap: 10px;
         color: #fff;
         font-weight: 600;
-        padding: 0.75rem 1.125rem;
+        padding: 0 1.125rem;
+        height: 2.75rem;
         transition: opacity 0.1s ease-in-out;
     }
 

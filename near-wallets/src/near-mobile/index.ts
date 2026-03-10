@@ -180,6 +180,11 @@ export const initNearMobileWallet = async () => {
     testnet: wallet.testnet.sessionRepository,
   };
 
+  // @ts-ignore - bypass on-chain key validation since we manage sign-in state ourselves
+  wallet.mainnet.isSignedIn = async () => !!(await sessionRepo.mainnet.getActiveAccount("mainnet"));
+  // @ts-ignore
+  wallet.testnet.isSignedIn = async () => !!(await sessionRepo.testnet.getActiveAccount("testnet"));
+
   function buildAddKeyTransaction(addFunctionCallKey: AddFunctionCallKeyParams) {
     const methodNames = addFunctionCallKey.allowMethods.anyMethod === false
       ? addFunctionCallKey.allowMethods.methodNames
@@ -306,8 +311,10 @@ export const initNearMobileWallet = async () => {
     },
 
     async signOut({ network }: { network: Network }) {
-      window.selector.ui.showIframe();
-      await wallet[network].signOut();
+      const accountIds = await wallet[network].getAccounts();
+      for (const accountId of accountIds) {
+        await sessionRepo[network].removeKey(network, accountId);
+      }
     },
 
     async getAccounts({ network }: { network: Network }) {

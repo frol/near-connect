@@ -127,6 +127,16 @@ async function getIframeCode(args: { id: string; executor: SandboxExecutor; code
         };
       })();
 
+      // Redirect standalone localStorage access to sandboxedLocalStorage
+      // (the .localStorage → .sandboxedLocalStorage string replacement only
+      // catches prefixed access like window.localStorage, not bare localStorage)
+      try {
+        Object.defineProperty(window, 'localStorage', {
+          get: function() { return window.sandboxedLocalStorage; },
+          configurable: true,
+        });
+      } catch(e) {}
+
       const showPrompt = async (args) => {
         const root = document.getElementById("root");   
         root.style.display = "flex";

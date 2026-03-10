@@ -210,7 +210,7 @@
       "icon": "https://storage.herewallet.app/upload/179839f01189bc54afea2fd34eb092ddb6d63c97b5c8c9e418317285fd751f0c.webp",
       "description": "Discover the only NEAR wallet you will need: NEAR Mobile, the most secure and comprehensive mobile wallet designed exclusively for the NEAR Blockchain",
       "website": "https://nearmobile.app",
-      "executor": "https://raw.githubusercontent.com/hot-dao/near-selector/refs/heads/main/repository/near-mobile.js",
+      "executor": "https://raw.githubusercontent.com/frol/near-connect/refs/heads/fix/wallets-on-mobile/repository/near-mobile.js",
       "type": "sandbox",
       "version": "1.0.0",
 
@@ -231,7 +231,7 @@
 
       "permissions": {
         "storage": true,
-        "allowsOpen": ["https://nearmobile.app", "https://play.google.com", "https://apps.apple.com"]
+        "allowsOpen": ["https://nearmobile.app", "https://play.google.com", "https://apps.apple.com", "https://near-mobile-signer-backend.peersyst.tech"]
       }
     },
     {
@@ -268,7 +268,7 @@
       "description": "Wallet Connect is a protocol for connecting wallets to dapps.",
       "website": "https://reown.com",
       "version": "1.0.0",
-      "executor": "https://raw.githubusercontent.com/hot-dao/near-selector/refs/heads/main/repository/wallet-connect.js",
+      "executor": "https://raw.githubusercontent.com/frol/near-connect/refs/heads/fix/wallets-on-mobile/repository/wallet-connect.js",
       "type": "sandbox",
       "platform": {},
       "permissions": {
@@ -293,7 +293,7 @@
       "description": "Discover the most secure, feature-packed, self-custodial crypto and Web3 wallet. Unlock limitless possibilities.",
       "website": "https://unitywallet.com",
       "version": "1.0.0",
-      "executor": "https://raw.githubusercontent.com/hot-dao/near-selector/refs/heads/main/repository/wallet-connect.js",
+      "executor": "https://raw.githubusercontent.com/frol/near-connect/refs/heads/fix/wallets-on-mobile/repository/wallet-connect.js",
       "type": "sandbox",
       "platform": {
         "web": "https://unitywallet.com",

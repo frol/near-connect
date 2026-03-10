@@ -210,7 +210,10 @@ class SandboxExecutor {
     }
 
     if (event.data.method === "open") {
-      this.assertPermissions(iframe, "allowsOpen", event);
+      // Wallets with walletConnect permission can open URLs for deep links
+      if (!this.checkPermissions("walletConnect")) {
+        this.assertPermissions(iframe, "allowsOpen", event);
+      }
 
       // Open in Telegram Mini App
       const tgapp = typeof window !== "undefined" ? (window as any)?.Telegram?.WebApp : null;
